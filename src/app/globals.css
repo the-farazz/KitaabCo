@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* 
+  KEBS DESIGN SYSTEMS
+  .theme-editorial: Playfair + Inter (Warm White)
+  .theme-classic: Cormorant + DM Sans (Warm Cream)
+  .theme-antique: EB Garamond + Outfit (Ivory White)
+*/
+
+:root {
+  /* Default: Classic */
+  --primary: #1C1C1C;
+  --accent: #B8860B;
+  --bg: #F5F0E8;
+  --card: #FFFFFF;
+  --border: #DDD5C8;
+  --text: #1C1C1C;
+  --muted: #888888;
+  --nav-bg: #1C1C1C;
+  --nav-text: #F5F0E8;
+  --radius: 4px;
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-dmsans);
+}
+
+.theme-editorial {
+  --primary: #2C1810;
+  --accent: #C9A84C;
+  --bg: #FAFAF8;
+  --card: #FFFFFF;
+  --border: #E8E0D5;
+  --text: #1A1A1A;
+  --muted: #6B7280;
+  --nav-bg: #2C1810;
+  --nav-text: #FAFAF8;
+  --radius: 12px;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
+.theme-antique {
+  --primary: #2D2926;
+  --accent: #8B6914;
+  --bg: #FFFEF9;
+  --card: #FFFFFF;
+  --border: #EAE4DA;
+  --text: #2D2926;
+  --muted: #9C9189;
+  --nav-bg: #FFFEF9;
+  --nav-text: #2D2926;
+  --radius: 2px;
+  --font-heading: var(--font-garamond);
+  --font-body: var(--font-outfit);
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-kitaab-bg: var(--bg);
+  --color-kitaab-card: var(--card);
+  --color-kitaab-border: var(--border);
+  --color-kitaab-text: var(--text);
+  --color-kitaab-muted: var(--muted);
+  --color-kitaab-nav: var(--nav-bg);
+  --color-kitaab-nav-text: var(--nav-text);
+  
+  --font-heading: var(--font-heading), serif;
+  --font-body: var(--font-body), sans-serif;
+  --font-urdu: var(--font-noto-urdu), serif;
+}
+
+@layer base {
+  body {
+    @apply text-kitaab-text bg-kitaab-bg selection:bg-accent selection:text-white antialiased transition-colors duration-500;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight text-primary transition-all duration-500;
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-8 py-3 transition-all duration-300 flex items-center justify-center gap-2 font-medium text-[12px] uppercase tracking-[0.1em];
+    border-radius: var(--radius);
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white px-8 py-3 transition-all duration-300 flex items-center justify-center gap-2 font-medium text-[12px] uppercase tracking-[0.1em];
+    border-radius: var(--radius);
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary px-8 py-3 transition-all duration-300 flex items-center justify-center gap-2 font-medium text-[12px] uppercase tracking-[0.1em];
+    border-radius: var(--radius);
+  }
+
+  .premium-card {
+    @apply bg-kitaab-card border border-kitaab-border hover:border-accent transition-all duration-500 overflow-hidden;
+    border-radius: var(--radius);
+  }
+}
+
+.rounded-kitaab {
+  border-radius: var(--radius);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
