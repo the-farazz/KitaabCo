@@ -1,4 +1,4 @@
-import { Book, Target, Award, Users, MessageCircle } from 'lucide-react';
+import { Book, Target, Award, Users, MessageCircle, Truck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AboutPage() {
