@@ -1,12 +1,13 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { books } from '@/data/books';
 import BookGrid from '@/components/BookGrid';
 import { Search, Home, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-export default function SearchPage() {
+function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
 
@@ -16,7 +17,7 @@ export default function SearchPage() {
   });
 
   return (
-    <div className="bg-kitaab-bg min-h-screen pt-24 md:pt-32">
+    <>
       <div className="container mx-auto px-6 mb-8 md:mb-12">
         <nav className="flex items-center gap-2 text-[9px] md:text-[10px] font-bold text-kitaab-muted uppercase tracking-[0.2em] mb-6 animate-fadeInUp">
           <Link href="/" className="hover:text-accent flex items-center gap-1 transition-colors">
@@ -75,6 +76,23 @@ export default function SearchPage() {
           </div>
         )}
       </div>
+    </>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <div className="bg-kitaab-bg min-h-screen pt-24 md:pt-32">
+      <Suspense fallback={
+        <div className="container mx-auto px-6 text-center py-20">
+          <div className="animate-pulse flex flex-col items-center gap-4">
+            <div className="w-12 h-12 bg-kitaab-border rounded-full" />
+            <div className="h-4 w-32 bg-kitaab-border rounded" />
+          </div>
+        </div>
+      }>
+        <SearchResults />
+      </Suspense>
     </div>
   );
 }
