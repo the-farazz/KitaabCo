@@ -1,6 +1,11 @@
 import { Book, Target, Award, Users, MessageCircle, Truck } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Our Story',
+  description: 'Learn about KitaabCo, Pakistan\'s premier destination for original textbooks, classic literature, and modern bestsellers. Our mission is to provide authentic educational resources to every reader.',
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-white pb-20">

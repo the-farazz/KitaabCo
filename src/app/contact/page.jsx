@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, MessageCircle, Clock, Globe } from 'lucide-react';
 
+export const metadata = {
+  title: 'Contact Us',
+  description: 'Get in touch with KitaabCo for book inquiries, orders, or school/institutional partnerships. Reach us via WhatsApp, email, or our contact form.',
+};
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',

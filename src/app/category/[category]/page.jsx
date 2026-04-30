@@ -4,9 +4,16 @@ import CategoryContent from './CategoryContent';
 export async function generateMetadata({ params }) {
   const { category } = await params;
   const cat = categories.find(c => c.id === category);
+  
   if (!cat) return { title: 'Category Not Found' };
+
   return {
-    description: `Shop the best ${cat.label} in Pakistan at KEBS. Order via WhatsApp with Cash on Delivery.`,
+    title: `${cat.label} Books`,
+    description: `Browse our extensive collection of ${cat.label} books at KitaabCo. Premium quality, best prices, and cash on delivery across Pakistan.`,
+    openGraph: {
+      title: `${cat.label} Books | KitaabCo`,
+      description: `Shop the best ${cat.label} in Pakistan at KitaabCo. Order via WhatsApp with Cash on Delivery.`,
+    },
   };
 }
 
