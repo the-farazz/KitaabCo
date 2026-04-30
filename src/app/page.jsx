@@ -42,7 +42,7 @@ export default function Home() {
                   <span className="not-italic font-light">Online Book Store</span>
                 </h1>
                 <p className="text-primary/80 text-lg md:text-xl leading-relaxed max-w-xl font-medium font-body">
-                  Discover thousands of academic, Islamic, Urdu, and motivational books delivered to your doorstep.
+                  Discover thousands of academic, Islamic, Urdu, and motivational books delivered to your doorstep
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-4">
